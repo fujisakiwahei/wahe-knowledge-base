@@ -67,8 +67,11 @@
 ```
 
 ```scss
+@use "../base/reset";
+@use "../base/var" as *;
+
 /* ===============================================
- *  フォーム
+ * フォーム
  =============================================== */
 
 .wpcf7 {
@@ -98,7 +101,7 @@
     // flex-direction: column; // 2カラムの時は削除
     gap: 40px;
 
-    @media (max-width: 768px) {
+    @media (max-width: $md-num) {
       gap: 8px;
       flex-direction: column;
     }
@@ -172,8 +175,8 @@
   }
 
   /* ==========================================================================
-      Input Elements Styling (タグ別の基本スタイル)
-========================================================================== */
+        Input Elements Styling (タグ別の基本スタイル)
+  ========================================================================== */
 
   input {
     width: 100%;
@@ -202,7 +205,9 @@
     line-height: 1.5;
     letter-spacing: 0.05em;
     appearance: none; /* ブラウザ標準スタイルをリセット */
-    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    transition:
+      border-color 0.2s ease,
+      box-shadow 0.2s ease;
 
     &::placeholder {
       color: #adb5bd;
@@ -285,27 +290,25 @@
     gap: 10px;
     padding: 0 20px;
     height: 44px;
-    border-radius: 0vh;
+    border-radius: 4px;
     font-size: 16px;
     letter-spacing: 0.1em;
-    font-weight: 400 !important;
-    font-family: $fontEn !important;
     background: transparent;
-    color: $colorGreen;
-    border: 1px solid $colorGreen;
+    color: $color-black;
+    border: 1px solid $color-black;
     transition: all 0.5s;
 
     // ★ フォーカススタイル（キーボード操作用）
     &:focus-within {
       border-radius: 24px;
-      background: $colorGreen !important ;
-      color: $colorWhite !important;
+      background: $color-black !important ;
+      color: $color-white !important;
     }
 
     @media (hover: none) {
       border-radius: 24px;
-      background: $colorGreen !important ;
-      color: $colorWhite !important;
+      background: $color-black !important ;
+      color: $color-white !important;
 
       &:active {
         opacity: 0.7;
@@ -313,15 +316,15 @@
       }
     }
 
-    @media (max-width: $tabletBreakPoint) {
+    @media (max-width: $md-num) {
       margin-inline: auto;
     }
 
     @media (hover: hover) {
       &:hover {
         border-radius: 24px;
-        background: $colorGreen;
-        color: $colorWhite;
+        background: $color-black;
+        color: $color-white;
 
         .material-symbols-rounded {
           transform: translateX(10px);
@@ -355,7 +358,7 @@
       pointer-events: none;
       font-size: 24px;
       font-weight: 300;
-      transition: all 0.5s $easeOutQuad;
+      transition: all 0.5s ease-in-out;
       transform: translateX(0);
     }
 
@@ -371,8 +374,8 @@
 }
 
 /* ===============================================
- *  メッセージ
- =============================================== */
+   * メッセージ
+   =============================================== */
 .wpcf7-response-output {
   display: block;
   font-size: 14px !important;
@@ -395,8 +398,8 @@
 }
 
 /* ===============================================
- *  Turnstileの認証
- =============================================== */
+   * Turnstileの認証
+   =============================================== */
 .wpcf7-turnstile {
   margin-bottom: 24px;
 }
