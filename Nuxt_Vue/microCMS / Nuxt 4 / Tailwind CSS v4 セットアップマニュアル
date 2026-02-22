@@ -468,6 +468,91 @@ const { data: workData } = await useMicroCMSGetListDetail<Works>({
 npm run dev
 ```
 
+
+---
+
+## 9. レイアウトの設定（ヘッダー・フッター）
+
+### 9-1. レイアウトファイルの作成
+
+`app/layouts/default.vue`:
+
+```vue
+<template>
+  <div class="flex min-h-screen flex-col">
+    <NuxtHeader />
+    <main class="flex-1">
+      <slot />
+    </main>
+    <NuxtFooter />
+  </div>
+</template>
+```
+
+### 9-2. コンポーネントの作成
+
+```bash
+mkdir -p app/components
+touch app/components/NuxtHeader.vue
+touch app/components/NuxtFooter.vue
+```
+
+`app/components/NuxtHeader.vue`:
+
+```vue
+<template>
+  <header class="border-b bg-white">
+    <nav class="container mx-auto flex items-center justify-between px-4 py-4">
+      <NuxtLink to="/" class="text-xl font-bold">
+        LOGO
+      </NuxtLink>
+      <ul class="flex gap-8">
+        <li><NuxtLink to="/works">Works</NuxtLink></li>
+        <li><NuxtLink to="/blog">Blog</NuxtLink></li>
+        <li><NuxtLink to="/services">Services</NuxtLink></li>
+        <li><NuxtLink to="/contact">Contact</NuxtLink></li>
+      </ul>
+    </nav>
+  </header>
+</template>
+```
+
+`app/components/NuxtFooter.vue`:
+
+```vue
+<template>
+  <footer class="bg-gray-900 text-white">
+    <div class="container mx-auto px-4 py-8">
+      <p class="text-center">© 2026 Your Company</p>
+    </div>
+  </footer>
+</template>
+```
+
+### 9-3. 仕組み
+
+| ファイル | 役割 |
+|---------|------|
+| `app/app.vue` | `<NuxtLayout>` でレイアウトを読み込む |
+| `app/layouts/default.vue` | 共通レイアウト（ヘッダー・フッター・slot） |
+| `app/components/NuxtHeader.vue` | ヘッダーコンポーネント |
+| `app/components/NuxtFooter.vue` | フッターコンポーネント |
+
+> **ポイント**: `components/` 内のファイルは自動インポートされるため、`import` 文は不要
+
+### 9-4. 特定ページで別レイアウトを使う場合
+
+`app/layouts/home.vue` など別レイアウトを作成し、ページで指定：
+
+```vue
+<script setup lang="ts">
+definePageMeta({
+  layout: 'home'
+})
+</script>
+```
+
+
 ---
 
 ## よくあるトラブルと対処法
