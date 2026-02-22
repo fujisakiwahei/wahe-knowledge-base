@@ -10,15 +10,16 @@
 
 1. GitHubリポジトリの作成
 2. 要件定義のテンプレートをコピペして埋める
-3. NuxtとmicroCMSのセットアップ
+4. NuxtとmicroCMSのセットアップ
     1. https://blog.microcms.io/nuxt3-jamstack-blog/
         1. Nuxtのセットアップ
-        2. microCMSの準備
-        3. `.env` にAPIキーの記述
-        4. microCMSモジュールの導入 
-        5. microCMSで取得できるコンテンツの型情報を作成
+        2. nodeの型定義を追加: `npm i --save-dev @types/node`
+        3. microCMSの準備
+        4. `.env` にAPIキーの記述
+        5. microCMSモジュールの導入 
+        6. microCMSで取得できるコンテンツの型情報を作成
             1. APIの分だけ作成
-        6. 注意事項
+        7. 注意事項
             1. `import type { Work } from "~/types/work";` のように、typeを明示して読み込む必要あり
             2. ドキュメントとは異なり、`pages/works/[id].vue` としているのでリンクも要調整
     2. `app.vue`は以下にする
@@ -39,7 +40,7 @@
         3. APIの分だけ作成
     4. 詳細ページを作る
         1. `pages/works/[{api名}].vue` を作成
-4. Tailwindの導入
+5. Tailwindの導入
     1. https://arc.net/l/quote/zzamouhf
     2. talwind Prettierの導入
         1. **必要なパッケージのインストール**:
@@ -70,7 +71,7 @@
             
             ```
             
-5. main.cssの作成→フォント指定まで
+6. main.cssの作成→フォント指定まで
     1. `main.css` を作成
         
         ```bash
