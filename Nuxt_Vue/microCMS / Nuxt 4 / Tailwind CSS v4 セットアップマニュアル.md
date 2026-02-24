@@ -101,6 +101,7 @@ git push -u origin main
 
 ```bash
 npm i tailwindcss @tailwindcss/vite
+npm install -D sass-embedded
 ```
 
 > **重要**: Tailwind v4 では `@nuxtjs/tailwindcss` モジュールは不要。Viteプラグインを直接使用する。
