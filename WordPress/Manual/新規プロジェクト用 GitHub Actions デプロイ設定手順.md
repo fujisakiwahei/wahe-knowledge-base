@@ -24,11 +24,11 @@ REPO="your-github-username/your-repo-name"
 
 # 共通の値（毎回同じ）
 gh secret set SSH_PRIVATE_KEY --body "$(cat ~/.ssh/conoha_deploy_rsa)" --repo $REPO
-gh secret set REMOTE_HOST --body "ここにホスト名" --repo $REPO
-gh secret set REMOTE_USER --body "ここにユーザー名" --repo $REPO
+gh secret set REMOTE_HOST --body "www1016.conoha.ne.jp" --repo $REPO
+gh secret set REMOTE_USER --body "c7161250" --repo $REPO
 
 # プロジェクトごとに変わる値
-gh secret set REMOTE_PATH --body "/home/ユーザー名/public_html/ドメイン/wp-content/themes/テーマ名/" --repo $REPO
+gh secret set REMOTE_PATH --body "/home/c7161250/public_html/ドメイン/wp-content/themes/テーマ名/" --repo $REPO
 ```
 
 > **ヒント**: `REMOTE_HOST` と `REMOTE_USER` は毎回同じ値なので、
