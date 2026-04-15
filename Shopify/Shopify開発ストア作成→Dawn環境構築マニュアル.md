@@ -50,7 +50,7 @@ shopify theme pull --store [ストアドメイン] --live
 ## 3. GitHub Integrationの追加
 [https://shopify.dev/docs/storefronts/themes/tools/github] を参照。これにより、GitHubのリポジトリをShopifyのテーマとして扱える。
 ブランチは、`main`,`staging`を作って対応させる。Web開発と同じ。
-開発時は`staging`を公開してプレビューでOK。開発自体のプレビューはlocalで、pushしたら勝手にstagingにも反映されているイメージ。
+`main`を管理画面から公開。開発時は`staging`でプレビューでOK。開発自体のプレビューはlocalで、pushしたら勝手にstagingにも反映されているイメージ。
 <img width="931" height="262" alt="image" src="https://github.com/user-attachments/assets/85e4aca3-f123-4939-b99a-6bb1db0f1b1e" />
 
 
