@@ -13,7 +13,7 @@ Shopify開発ストアでDawnテーマのローカル開発環境を構築する
 Partner Dashboard（[https://partners.shopify.com](https://partners.shopify.com/)）にログイン後、以下の手順で作成：
 
 1. 「Stores」→「Add store」→「Create development store」
-2. 「Create a store for a client」を選択
+2. 「Create a store for a client」を選択(クライアント移管ストア)
 3. ストア名とURLを入力
 4. 「Create development store」をクリック
 
@@ -46,6 +46,13 @@ shopify theme pull --store [ストアドメイン] --live
 ```
 
 ここで案件名やクライアント名を入力してください（例：`tanaka-shop-2026`）。
+
+## 3. GitHub Integrationの追加
+[https://shopify.dev/docs/storefronts/themes/tools/github] を参照。これにより、GitHubのリポジトリをShopifyのテーマとして扱える。
+ブランチは、`main`,`staging`を作って対応させる。Web開発と同じ。
+開発時は`staging`を公開してプレビューでOK。開発自体のプレビューはlocalで、pushしたら勝手にstagingにも反映されているイメージ。
+<img width="931" height="262" alt="image" src="https://github.com/user-attachments/assets/85e4aca3-f123-4939-b99a-6bb1db0f1b1e" />
+
 
 ## 4. 開発サーバーの起動
 
