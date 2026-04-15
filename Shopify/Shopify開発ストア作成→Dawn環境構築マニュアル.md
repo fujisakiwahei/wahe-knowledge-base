@@ -99,14 +99,14 @@ Share this theme preview:
 ### テーマをストアにプッシュ
 
 ```
-shopify theme push --store [ストア名]
+gacp "コミットメッセージ"
 
 ```
 
 ### テーマをストアからプル
 
 ```
-shopify theme pull --store [ストア名]
+git pull
 
 ```
 
