@@ -30,7 +30,7 @@ npx browser-sync init
 
 ---
 
-```
+```bs-config.js
 module.exports = {
   proxy: "poweron.local", // localで設定したURL
   files: ["*.css", "**/*.css", "assets/scss/*.scss", "assets/scss/**/*.scss", "assets/js/*.js", "**/*.php", "*.php", "*.html"],
@@ -40,20 +40,6 @@ module.exports = {
 
 ---
 
-```
+```package.json
 "browser": "browser-sync start --config bs-config.js"
-```
-
----
-
-```
-npm run browser
-```
-
-```
-module.exports = {
-  proxy: "poweron.local", // localで設定したURL
-  files: ["*.css", "**/*.css", "assets/scss/*.scss", "assets/scss/**/*.scss", "assets/js/*.js", "**/*.php", "*.php", "*.html"],
-};
-
 ```
