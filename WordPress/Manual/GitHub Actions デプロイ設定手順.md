@@ -16,23 +16,34 @@ brew install gh
 gh auth login
 ```
 
-#### Secrets 登録コマンド
-
+#### Secrets 登録コマンド（ステージング: ConoHa）
 ```bash
 # リポジトリ名を変数にセット（都度変える）
 REPO="your-github-username/your-repo-name"
 
 # 共通の値（毎回同じ）
-gh secret set SSH_PRIVATE_KEY --body "$(cat ~/.ssh/conoha_deploy_rsa)" --repo $REPO
-gh secret set REMOTE_HOST --body "www1016.conoha.ne.jp" --repo $REPO
-gh secret set REMOTE_USER --body "c7161250" --repo $REPO
+gh secret set STAGING_SSH_PRIVATE_KEY --body "$(cat ~/.ssh/conoha_deploy_rsa)" --repo $REPO
+gh secret set STAGING_REMOTE_HOST --body "www1016.conoha.ne.jp" --repo $REPO
+gh secret set STAGING_REMOTE_USER --body "c7161250" --repo $REPO
 
 # プロジェクトごとに変わる値
-gh secret set REMOTE_PATH --body "/home/c7161250/public_html/ドメイン/wp-content/themes/テーマ名/" --repo $REPO
+gh secret set STAGING_REMOTE_PATH --body "/home/c7161250/public_html/ドメイン/wp-content/themes/テーマ名/" --repo $REPO
 ```
 
 > **ヒント**: `REMOTE_HOST` と `REMOTE_USER` は毎回同じ値なので、
 > シェルのヒストリーから呼び出して `REPO` と `REMOTE_PATH` だけ変えれば OK。
+
+#### Secrets 登録コマンド（本番）
+```bash
+# 本番用共通の値（お名前.com RSプラン用）
+gh secret set PRODUCTION_SSH_PRIVATE_KEY --body "$(cat ~/.ssh/[プロジェクトごとの秘密鍵のファイル名])" --repo $REPO
+gh secret set PRODUCTION_REMOTE_HOST --body "[レンタルサーバのホスト名]" --repo $REPO
+gh secret set PRODUCTION_REMOTE_USER --body "[レンタルサーバのユーザー名]" --repo $REPO   # ← ここを実際のユーザー名に置き換え
+gh secret set PRODUCTION_REMOTE_PORT --body "[レンタルサーバのホスト]" --repo $REPO
+
+# プロジェクトごとに変わる値（デプロイ先パス）
+gh secret set PRODUCTION_REMOTE_PATH --body "/home/[レンタルサーバのユーザー名]/public_html/[ドメイン名]/" --repo $REPO
+```
 
 ---
 
